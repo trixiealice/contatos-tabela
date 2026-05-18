@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./app.js" defer type="module"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Contatos</title>
+</head>
+<body>
+    <main class="container">
+        <h1 class="title">Cadastro</h1>
+        <div class="row">
+            <div class="inputbox">
+                <input type="text" id="nome" required>
+                <label for="nome">Nome</label>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="celular" required>
+                <label for="celular">Celular</label>
+            </div>
+            
+            <div class="inputbox">
+                <input type="text" id="foto" required>
+                <label for="foto">Adicionar Foto</label>
+            </div>
+            
+            <div class="inputbox">
+                <input type="text" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            
+            <div class="inputbox">
+                <input type="text" id="numero" required>
+                <label for="numero">Número</label>
+            </div>
+            
+            <div class="inputbox">
+                <input type="text" id="endereco" required>
+                <label for="endereco">Endereço</label>
+            </div>
+            
+            <div class="inputbox">
+                <input type="text" id="cidade" required>
+                <label for="cidade">Cidade</label>
+            </div>
+
+        </div>
+        <div class="row">
+            <button id="btn">Salvar</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Foto</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+        
+            <tbody id="listaContatos">
+        
+            </tbody>
+        </table>
+        
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+</html>
