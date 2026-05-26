@@ -1,21 +1,31 @@
 'use strict'
 
-import { deleteContato, getContato, getContatos, postContato, putContato } from "./contatos.js"
+import {
+    deleteContato,
+    getContato,
+    getContatos,
+    postContato,
+    putContato
+    } from "./contatos.js"
 
-/*
+
 const novoContato = {
-"nome": "Marinette Dupain-Cheng",
-  "celular": "+33 6 9999 9999",
-  "foto": "https://img.freepik.com/psd-gratuitas/renderizacao-3d-do-estilo-de-cabelo-para-o-design-do-avatar_23-2151869121.jpg",
-  "email": "marinette.baking@gmail.com",
-  "endereco": "12 Rue Gotlib",
-  "cidade": "Paris"
+    "nome": "",
+    "celular": "",
+    "foto": "",
+    "email": "",
+    "endereco": "",
+    "cidade": ""
+
+
 }
+
 console.table(await postContato(novoContato))
-*/
+
 
 const btn = document.getElementById('btn')
 const listaContatos = document.getElementById('listaContatos')
+let idContato = null
 
 async function carregarContatos(){
 
@@ -36,9 +46,13 @@ async function carregarContatos(){
                 </td>
 
                 <td>
-                    <button onclick="excluirContato(${contato.id})">
-                        Excluir
-                    </button>
+                <button onclick="editarContato(${contato.id})">
+                    Atualizar
+                </button>
+
+                <button onclick="excluirContato(${contato.id})">
+                    Excluir
+                </button>
                 </td>
             </tr>
         `
@@ -56,7 +70,16 @@ btn.addEventListener('click', async () => {
         cidade: document.getElementById('cidade').value
     }
 
-    await postContato(novoContato)
+    if(idContato == null){
+
+        await postContato(novoContato)
+    
+    }else{
+    
+        await putContato(idContato, novoContato)
+    
+        idContato = null
+    }
 
     carregarContatos()
 
@@ -68,9 +91,29 @@ btn.addEventListener('click', async () => {
     document.getElementById('cidade').value = ''
 })
 
+window.editarContato = async function(id){
+
+    const contato = await getContato(id)
+
+    document.getElementById('nome').value = contato.nome
+    document.getElementById('celular').value = contato.celular
+    document.getElementById('foto').value = contato.foto
+    document.getElementById('email').value = contato.email
+    document.getElementById('endereco').value = contato.endereco
+    document.getElementById('cidade').value = contato.cidade
+
+    idContato = id
+}
+
 window.excluirContato = async function(id){
 
+    const confirmar = confirm('Deseja excluir este contato?')
+
+    if(confirmar){
+
     await deleteContato(id)
+
+    }
 
     carregarContatos()
 }

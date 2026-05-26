@@ -6,8 +6,8 @@
 }
 
 :root {
-    --bg-color: #000000;
-    --primary-color: #BA000F
+    --bg-color: #ebe7ff;
+    --primary-color: #ad7dff
 }
 
 body {
@@ -95,6 +95,7 @@ body {
     outline: none;
     cursor: pointer;
     background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
     font-size: 20px;
     font-weight: bold;
     border-radius: 2px;
@@ -103,7 +104,7 @@ body {
 table{
     width: 100%;
     border-collapse: collapse;
-    color: white;
+    color: rgb(38, 0, 141);
 }
 
 th{
@@ -114,7 +115,7 @@ th{
 td{
     padding: 12px;
     text-align: center;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #0f0033;
 }
 
 td img{
